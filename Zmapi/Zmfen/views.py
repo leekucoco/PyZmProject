@@ -82,7 +82,16 @@ def decryptreturnurl(request):
         Client = ZmopClient(gatewayUrl, appid, charset, privateKeyFile, zmPublicKeyFile)
         result = Client.decryptAndVerifySign(params, sign)
         s =urllib.unquote(result)
-        return HttpResponse(s)
+        parms = s.split("&")
+        openid = parms[0].split("=")[1]
+        nameid = parms[2].split("=")[1]
+        nameandid = nameid.split("+")
+        name = nameandid[0].decode("utf8")
+        print name ,type(name)
+        userid = nameandid[1]
+        zmopenid = models.ZmOpenId.objects.create(openid = openid,name=name, certno=userid)
+
+        return HttpResponse(openid)
 
 
 
