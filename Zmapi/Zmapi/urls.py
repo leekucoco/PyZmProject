@@ -18,9 +18,10 @@ from django.contrib import admin
 from Zmfen import views as fenview
 urlpatterns = [
     url(r'^testurldecode/',fenview.decryptreturnurl),
-    url(r'^getinvokeurl/',fenview.getinvokeurl),
-    url(r'^testzmfen/',fenview.index),
-    url(r'^insert/',fenview.insert),
-    url(r'^show/',fenview.list),
+    url(r'^getinvokeurl/',fenview.getinvokeurl,name = "getinvokeurlview"),
+    url(r'^testzmfen/',fenview.index,name="getzmfenview"),
+    url(r'^login/',fenview.loginview,name="loginview"),
+   # url(r'^insert/',fenview.insert),
+   # url(r'^show/',fenview.list),
     url(r'^admin/', admin.site.urls),
 ]

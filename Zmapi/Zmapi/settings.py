@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+AUTH_PROFILE_MODULE = 'Zmfen.CustsomerManager'
 # Application definition
 
 INSTALLED_APPS = [
